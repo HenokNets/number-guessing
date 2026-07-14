@@ -1,24 +1,27 @@
 let randomNum = Math.floor (Math.random()*51);
 
 const guessBtn = document.querySelector("button");
+const input = document.querySelector ("input");
+let guessct = document.querySelector (".guessct");
+let status = document.querySelector (".status");
+let guessCount = 0;
 
 guessBtn.addEventListener ('click', () => {
-    let userInput = Number (prompt("Enter your guess"));
+    let userInput = Number (input.value);
     let distance = Math.abs (userInput - randomNum);
     if (userInput === randomNum) {
-        console.log("You got the right answer!");
-        return;
+        status.textContent = "You got the right answer!"
     } else if (distance<= 5) {
-        console.log("You're very close!");
+        status.textContent = "You're very close!";
     } else if (distance <= 10) {
-        console.log("You're getting close!");
+        status.textContent = "You're getting close!";
     } else if (distance<= 20) {
-        console.log("You're not too far away.");
+        status.textContent = "You're not too far away.";
     } else {
-        console.log("You're way off!");
+        status.textContent = "You're way off!";
     }
 
-    
-
+    guessct.textContent = ++guessCount
+    input.value = "";
 
 })
