@@ -1,11 +1,10 @@
-let randomNum = Math.floor (Math.random()*50);
+let randomNum = Math.floor (Math.random()*51);
 
 const guessBtn = document.querySelector("button");
 
-let distance = Math.abs (userInput - randomNum);
-
 guessBtn.addEventListener ('click', () => {
     let userInput = Number (prompt("Enter your guess"));
+    let distance = Math.abs (userInput - randomNum);
     if (userInput === randomNum) {
         console.log("You got the right answer!");
         return;
